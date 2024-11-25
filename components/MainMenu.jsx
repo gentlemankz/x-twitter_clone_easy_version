@@ -1,7 +1,7 @@
 import PostMenu from "./PostMenu";
-import Tweets from "./Tweets";
+import TweetList from "./TweetList";
 
-export default function MainMenu() {
+export default function MainMenu({ searchTerm }) {
     
     const tweets = [
         {
@@ -35,16 +35,7 @@ export default function MainMenu() {
           <div className="border-t border-[#3e4144]" />
         </div>
         <PostMenu />
-        {tweets.map((tweet, index) => (
-            <Tweets key={index} 
-            tweets={tweet} 
-            fullName={tweet.fullName}
-            userName={tweet.userName}
-            minutes={tweet.minutes}
-            content={tweet.content}
-            imageUrl={tweet.imageUrl}
-             />
-        ))}
+        <TweetList tweets={tweets} searchTerm={searchTerm} />
       </div>
     );
 }
